@@ -1,0 +1,49 @@
+Configuration:
+vim /etc/httpd/conf.d/salma.com.conf
+<VirtualHost *:80>
+        ServerName salma.com
+        DocumentRoot /var/www/salma.com
+        DirectoryIndex index.html
+</VirtualHost>
+
+<Directory "/var/www/salma.com">
+        AllowOverride all
+        Require all granted
+</Directory>
+vim /etc/httpd/conf.d/admin.com.conf
+<VirtualHost *:80>
+        ServerName admin.com
+        DocumentRoot /var/www/admin.com
+        DirectoryIndex index.html
+</VirtualHost>
+
+<Directory "/var/www/admin.com">
+        AllowOverride all
+        Require all granted
+</Directory>
+#######################################
+DocumentRoot:
+mkdir /var/www/admin.com
+mkdir /var/www/salma.com      
+vim /var/www/admin.com/index.html
+<Center><h1>Welcome to ADMIN.COM</h1></center>
+vim /var/www/salma.com/index.html
+<Center><h1>Welcome to salma.COM</h1></center>
+########################################
+systemctl restart httpd
+#######################################
+DNS reolve:
+vim /etc/hosts >>>>>>>>in linux
+192.168.132.240 salma.com
+192.168.132.240 admin.com
+in windows:
+C:\Windows\System32\drivers\etc
+edit in file hosts and add
+192.168.132.240 salma.com
+192.168.132.240 admin.com
+#########################################
+Test
+in browser:
+salma.com
+admin.com
+
